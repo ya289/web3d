@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Site Map - EsrCola 3D Exploration</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <!-- Modern Navigation CSS -->
+    <link rel="stylesheet" href="assets/css/modern-navigation.css" />
+
+    <!-- Custom Styles for updated UI -->
+    <style>
+      /* Updated navbar styles */
+      .navbar_coca_cola {
+        background: linear-gradient(135deg, #e7223a 0%, #b7142c 100%);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        padding: 0.8rem 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand-container {
+        position: relative;
+        padding: 0.5rem 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand-container:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
+
+      /* Enhanced Logo Styles */
+      .brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-3d {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        transform-style: preserve-3d;
+        transform: rotateX(-20deg) rotateY(30deg);
+        animation: logo-rotate 12s infinite ease-in-out;
+        transition: transform 0.3s ease;
+      }
+
+      .logo-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.15);
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+        backface-visibility: visible;
+      }
+
+      .logo-front {
+        transform: translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .logo-back {
+        transform: rotateY(180deg) translateZ(20px);
+      }
+
+      .logo-right {
+        transform: rotateY(90deg) translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .logo-left {
+        transform: rotateY(-90deg) translateZ(20px);
+      }
+
+      .logo-top {
+        transform: rotateX(90deg) translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+
+      .logo-bottom {
+        transform: rotateX(-90deg) translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-title {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        letter-spacing: 1px;
+      }
+
+      .brand-title .highlight {
+        color: #ffffff;
+        position: relative;
+        display: inline-block;
+      }
+
+      .brand-title .highlight::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .brand-tagline {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 2px 0 0 0;
+        letter-spacing: 1.5px;
+        font-weight: 400;
+      }
+
+      @keyframes logo-rotate {
+        0% {
+          transform: rotateX(-20deg) rotateY(0deg);
+        }
+        25% {
+          transform: rotateX(20deg) rotateY(90deg);
+        }
+        50% {
+          transform: rotateX(-10deg) rotateY(180deg);
+        }
+        75% {
+          transform: rotateX(30deg) rotateY(270deg);
+        }
+        100% {
+          transform: rotateX(-20deg) rotateY(360deg);
+        }
+      }
+
+      .navbar-brand:hover .logo-3d {
+        animation-play-state: paused;
+        transform: rotateX(0deg) rotateY(0deg) scale(1.1);
+      }
+
+      .navbar-brand:hover .brand-title .highlight::after {
+        transform: scaleX(1.2);
+      }
+
+      /* Nav links */
+      .nav-link {
+        position: relative;
+        margin: 0 0.5rem;
+        padding: 0.5rem 1rem;
+        color: white;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        border-radius: 50px;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Sitemap Specific Styles */
+      .sitemap-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .sitemap-box {
+        border: 2px solid #e9ecef;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        padding: 15px;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .sitemap-box:hover {
+        border-color: #007bff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3px);
+      }
+
+      .sitemap-box h5 {
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #343a40;
+      }
+
+      .sitemap-box .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 50%;
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      .sitemap-line {
+        position: absolute;
+        background-color: #dee2e6;
+        z-index: 0;
+      }
+
+      .sitemap-line-vertical {
+        width: 2px;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 30px;
+      }
+
+      .sitemap-line-horizontal {
+        height: 2px;
+        top: 50%;
+        left: 0;
+        width: 100%;
+      }
+
+      /* Enhanced Footer */
+      .footer {
+        background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+        color: white;
+        padding: 1.5rem 0;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        margin-top: 4rem;
+      }
+    </style>
+  </head>
+
+  <body id="bodyColor">
+    <!-- Modern Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark sticky-top navbar-modern py-3"
+    >
+      <div class="container">
+        <div class="navbar-brand-wrapper">
+          <a class="navbar-brand" href="index.html">
+            <div class="brand-logo">
+              <div class="logo-3d">
+                <div class="logo-face logo-front">
+                  <i class="fas fa-glass-cheers"></i>
+                </div>
+                <div class="logo-face logo-back">
+                  <i class="fas fa-tint"></i>
+                </div>
+                <div class="logo-face logo-right">
+                  <i class="fas fa-cube"></i>
+                </div>
+                <div class="logo-face logo-left">
+                  <i class="fas fa-glass-whiskey"></i>
+                </div>
+                <div class="logo-face logo-top">
+                  <i class="fas fa-cubes"></i>
+                </div>
+                <div class="logo-face logo-bottom">
+                  <i class="fas fa-glass-martini-alt"></i>
+                </div>
+              </div>
+              <div class="brand-text">
+                <h1 class="brand-title">
+                  Esr<span class="highlight">Cola</span>
+                </h1>
+                <p class="brand-tagline">EXPERIENCE BEVERAGES IN 3D</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <button
+          class="navbar-toggler navbar-toggler-modern"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon-modern"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto nav-menu-modern">
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern" href="index.html">
+                <i class="fas fa-home nav-icon"></i>Home
+              </a>
+            </li>
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern" href="about.html">
+                <i class="fas fa-info-circle nav-icon"></i>About
+              </a>
+            </li>
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern" href="models.html">
+                <i class="fas fa-cube nav-icon"></i>Models
+              </a>
+            </li>
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern" href="submission.html">
+                <i class="fas fa-file-alt nav-icon"></i>Submission
+              </a>
+            </li>
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern active" href="sitemap.html">
+                <i class="fas fa-sitemap nav-icon"></i>Site Map
+              </a>
+            </li>
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern" href="references.html">
+                <i class="fas fa-link nav-icon"></i>References
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sitemap Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="card border-0 shadow" data-aos="fade-up">
+              <div class="card-body p-5">
+                <h1 class="card-title display-4 mb-4 text-center">Site Map</h1>
+                <p class="lead text-center mb-5">
+                  A visual representation of EsrCola 3D Exploration's website
+                  structure
+                </p>
+
+                <!-- Sitemap Visualization -->
+                <div class="sitemap-container my-5">
+                  <!-- Main Page -->
+                  <div class="row justify-content-center">
+                    <div class="col-md-6">
+                      <div class="sitemap-box text-center" data-aos="zoom-in">
+                        <div class="icon mx-auto">
+                          <i class="fas fa-home"></i>
+                        </div>
+                        <h5>Home Page</h5>
+                        <p>
+                          Main landing page with introduction to the 3D
+                          exploration
+                        </p>
+                        <a href="index.html" class="btn btn-primary btn-sm"
+                          >Visit</a
+                        >
+                        <div class="sitemap-line sitemap-line-vertical"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Second Level -->
+                  <div class="row justify-content-center mt-4">
+                    <div class="col-md-4">
+                      <div
+                        class="sitemap-box text-center"
+                        data-aos="zoom-in"
+                        data-aos-delay="100"
+                      >
+                        <div class="icon mx-auto">
+                          <i class="fas fa-info-circle"></i>
+                        </div>
+                        <h5>About</h5>
+                        <p>Information about the project and team</p>
+                        <a href="about.html" class="btn btn-primary btn-sm"
+                          >Visit</a
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div
+                        class="sitemap-box text-center"
+                        data-aos="zoom-in"
+                        data-aos-delay="200"
+                      >
+                        <div class="icon mx-auto">
+                          <i class="fas fa-cube"></i>
+                        </div>
+                        <h5>3D Models</h5>
+                        <p>Interactive 3D models with controls</p>
+                        <a href="models.html" class="btn btn-primary btn-sm"
+                          >Visit</a
+                        >
+                        <div class="sitemap-line sitemap-line-vertical"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div
+                        class="sitemap-box text-center"
+                        data-aos="zoom-in"
+                        data-aos-delay="300"
+                      >
+                        <div class="icon mx-auto">
+                          <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h5>Submission</h5>
+                        <p>Project submission details</p>
+                        <a href="submission.html" class="btn btn-primary btn-sm"
+                          >Visit</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Third Level - Model Subpages -->
+                  <div class="row justify-content-center mt-4">
+                    <div class="col-md-3 offset-md-1">
+                      <div
+                        class="sitemap-box text-center"
+                        data-aos="zoom-in"
+                        data-aos-delay="250"
+                      >
+                        <div class="icon mx-auto">
+                          <i class="fas fa-beer"></i>
+                        </div>
+                        <h5>Coke Can</h5>
+                        <p>3D model of Coke Can</p>
+                        <a
+                          href="models.html#coke-model"
+                          class="btn btn-primary btn-sm"
+                          >View</a
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div
+                        class="sitemap-box text-center"
+                        data-aos="zoom-in"
+                        data-aos-delay="300"
+                      >
+                        <div class="icon mx-auto">
+                          <i class="fas fa-wine-bottle"></i>
+                        </div>
+                        <h5>Dr Pepper Bottle</h5>
+                        <p>3D model of Dr Pepper Bottle</p>
+                        <a
+                          href="models.html#drpepper-model"
+                          class="btn btn-primary btn-sm"
+                          >View</a
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div
+                        class="sitemap-box text-center"
+                        data-aos="zoom-in"
+                        data-aos-delay="350"
+                      >
+                        <div class="icon mx-auto">
+                          <i class="fas fa-wine-bottle"></i>
+                        </div>
+                        <h5>Sprite Bottle</h5>
+                        <p>3D model of Sprite Bottle</p>
+                        <a
+                          href="models.html#sprite-model"
+                          class="btn btn-primary btn-sm"
+                          >View</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Fourth Level -->
+                  <div class="row justify-content-center mt-4">
+                    <div class="col-md-4">
+                      <div
+                        class="sitemap-box text-center"
+                        data-aos="zoom-in"
+                        data-aos-delay="400"
+                      >
+                        <div class="icon mx-auto">
+                          <i class="fas fa-sitemap"></i>
+                        </div>
+                        <h5>Site Map</h5>
+                        <p>Website structure visualization</p>
+                        <a href="sitemap.html" class="btn btn-primary btn-sm"
+                          >You Are Here</a
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div
+                        class="sitemap-box text-center"
+                        data-aos="zoom-in"
+                        data-aos-delay="450"
+                      >
+                        <div class="icon mx-auto">
+                          <i class="fas fa-link"></i>
+                        </div>
+                        <h5>References</h5>
+                        <p>Credits and resources used</p>
+                        <a href="references.html" class="btn btn-primary btn-sm"
+                          >Visit</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-5 text-center">
+                  <a href="index.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-home me-2"></i>Return to Homepage
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="footer-modern">
+      <div class="container">
+        <div class="footer-content-modern">
+          <div class="footer-copyright">
+            <p>
+              &copy; 2025 Web 3D Applications |
+              <a href="submission.html">Submission</a>
+            </p>
+          </div>
+          <div class="footer-social">
+            <a href="#" class="social-icon"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com" target="_blank" class="social-icon"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS animation library
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+      // Add animation to navbar on scroll
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          document.querySelector('.navbar-modern').style.padding =
+            '0.5rem 2rem';
+        } else {
+          document.querySelector('.navbar-modern').style.padding =
+            '0.8rem 2rem';
+        }
+      });
+    </script>
+  </body>
+</html>

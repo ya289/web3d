@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>References - EsrCola 3D Exploration</title>
+
+    <!-- Bootstrap 4 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <!-- Modern Navigation CSS -->
+    <link rel="stylesheet" href="assets/css/modern-navigation.css" />
+  </head>
+
+  <body id="bodyColor">
+    <!-- Modern Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark sticky-top navbar-modern py-3"
+    >
+      <div class="container">
+        <div class="navbar-brand-wrapper">
+          <a class="navbar-brand" href="index.html">
+            <div class="brand-logo">
+              <div class="logo-3d">
+                <div class="logo-face logo-front">
+                  <i class="fas fa-glass-cheers"></i>
+                </div>
+                <div class="logo-face logo-back">
+                  <i class="fas fa-tint"></i>
+                </div>
+                <div class="logo-face logo-right">
+                  <i class="fas fa-cube"></i>
+                </div>
+                <div class="logo-face logo-left">
+                  <i class="fas fa-glass-whiskey"></i>
+                </div>
+                <div class="logo-face logo-top">
+                  <i class="fas fa-cubes"></i>
+                </div>
+                <div class="logo-face logo-bottom">
+                  <i class="fas fa-glass-martini-alt"></i>
+                </div>
+              </div>
+              <div class="brand-text">
+                <h1 class="brand-title">
+                  Esr<span class="highlight">Cola</span>
+                </h1>
+                <p class="brand-tagline">EXPERIENCE BEVERAGES IN 3D</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <button
+          class="navbar-toggler navbar-toggler-modern"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon-modern"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto nav-menu-modern">
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern" href="index.html">
+                <i class="fas fa-home nav-icon"></i>Home
+              </a>
+            </li>
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern" href="about.html">
+                <i class="fas fa-info-circle nav-icon"></i>About
+              </a>
+            </li>
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern" href="models.html">
+                <i class="fas fa-cube nav-icon"></i>Models
+              </a>
+            </li>
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern" href="submission.html">
+                <i class="fas fa-file-alt nav-icon"></i>Submission
+              </a>
+            </li>
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern" href="sitemap.html">
+                <i class="fas fa-sitemap nav-icon"></i>Site Map
+              </a>
+            </li>
+            <li class="nav-item nav-item-modern">
+              <a class="nav-link nav-link-modern active" href="references.html">
+                <i class="fas fa-link nav-icon"></i>References
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- References Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="card border-0 shadow" data-aos="fade-up">
+              <div class="card-body p-5">
+                <h1 class="card-title display-4 mb-4 text-center">
+                  References & Citations
+                </h1>
+                <p class="lead text-center mb-5">
+                  This page lists all external resources, libraries, and tools
+                  used in the development of the EsrCola 3D Exploration project.
+                </p>
+
+                <!-- Libraries and Frameworks Section -->
+                <div class="mb-5" data-aos="fade-up">
+                  <h2 class="mb-4 border-bottom pb-3">
+                    <i class="fas fa-code me-2 text-primary"></i>Libraries &
+                    Frameworks
+                  </h2>
+
+                  <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <!-- Bootstrap -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                          <h4 class="card-title">Bootstrap 4</h4>
+                          <h6 class="card-subtitle mb-2 text-muted">v4.6.2</h6>
+                          <p class="card-text">
+                            Front-end toolkit used for responsive design and UI
+                            components.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-muted">License: MIT</small>
+                          </p>
+                          <a
+                            href="https://getbootstrap.com/"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-primary"
+                            >Official Website</a
+                          >
+                          <a
+                            href="https://github.com/twbs/bootstrap"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-secondary"
+                            >GitHub</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- X3DOM -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                          <h4 class="card-title">X3DOM</h4>
+                          <h6 class="card-subtitle mb-2 text-muted">
+                            Framework for 3D Graphics
+                          </h6>
+                          <p class="card-text">
+                            Used to render and interact with 3D models in the
+                            web browser.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-muted">License: MIT/X11</small>
+                          </p>
+                          <a
+                            href="https://www.x3dom.org/"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-primary"
+                            >Official Website</a
+                          >
+                          <a
+                            href="https://github.com/x3dom/x3dom"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-secondary"
+                            >GitHub</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- jQuery -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                          <h4 class="card-title">jQuery</h4>
+                          <h6 class="card-subtitle mb-2 text-muted">v3.6.0</h6>
+                          <p class="card-text">
+                            JavaScript library used for DOM manipulation and
+                            event handling.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-muted">License: MIT</small>
+                          </p>
+                          <a
+                            href="https://jquery.com/"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-primary"
+                            >Official Website</a
+                          >
+                          <a
+                            href="https://github.com/jquery/jquery"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-secondary"
+                            >GitHub</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Font Awesome -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                          <h4 class="card-title">Font Awesome</h4>
+                          <h6 class="card-subtitle mb-2 text-muted">v6.4.0</h6>
+                          <p class="card-text">
+                            Icon toolkit used throughout the site for visual
+                            elements.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-muted"
+                              >License: Font Awesome Free License</small
+                            >
+                          </p>
+                          <a
+                            href="https://fontawesome.com/"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-primary"
+                            >Official Website</a
+                          >
+                          <a
+                            href="https://github.com/FortAwesome/Font-Awesome"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-secondary"
+                            >GitHub</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- AOS -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                          <h4 class="card-title">AOS (Animate On Scroll)</h4>
+                          <h6 class="card-subtitle mb-2 text-muted">v2.3.1</h6>
+                          <p class="card-text">
+                            Animation library used to create scroll-based
+                            animations.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-muted">License: MIT</small>
+                          </p>
+                          <a
+                            href="https://michalsnik.github.io/aos/"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-primary"
+                            >Official Website</a
+                          >
+                          <a
+                            href="https://github.com/michalsnik/aos"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-secondary"
+                            >GitHub</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- FancyBox -->
+                    <div class="col">
+                      <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                          <h4 class="card-title">FancyBox</h4>
+                          <h6 class="card-subtitle mb-2 text-muted">v3.5.7</h6>
+                          <p class="card-text">
+                            JavaScript lightbox library used for displaying
+                            images and galleries.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-muted">License: GPLv3</small>
+                          </p>
+                          <a
+                            href="https://fancyapps.com/fancybox/3/"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-primary"
+                            >Official Website</a
+                          >
+                          <a
+                            href="https://github.com/fancyapps/fancybox"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-secondary"
+                            >GitHub</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tools & Resources Section -->
+                <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                  <h2 class="mb-4 border-bottom pb-3">
+                    <i class="fas fa-tools me-2 text-primary"></i>Tools &
+                    Resources
+                  </h2>
+
+                  <div class="row">
+                    <!-- Blender -->
+                    <div class="col-md-6 mb-4">
+                      <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                          <h4 class="card-title">Blender</h4>
+                          <p class="card-text">
+                            3D modeling software used to create and refine the
+                            3D models.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-muted">License: GPL</small>
+                          </p>
+                          <a
+                            href="https://www.blender.org/"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-primary"
+                            >Official Website</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- GIMP/Photoshop -->
+                    <div class="col-md-6 mb-4">
+                      <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                          <h4 class="card-title">Image Editing Tools</h4>
+                          <p class="card-text">
+                            GIMP and Adobe Photoshop were used for texture
+                            creation and image editing.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-muted">GIMP License: GPL</small>
+                          </p>
+                          <a
+                            href="https://www.gimp.org/"
+                            target="_blank"
+                            class="btn btn-sm btn-outline-primary"
+                            >GIMP Website</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Academic & Educational Resources -->
+                <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                  <h2 class="mb-4 border-bottom pb-3">
+                    <i class="fas fa-book me-2 text-primary"></i>Academic &
+                    Educational Resources
+                  </h2>
+
+                  <div class="list-group">
+                    <div class="list-group-item border-0 shadow-sm mb-3">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">X3DOM Documentation</h5>
+                        <small
+                          ><a href="https://doc.x3dom.org/" target="_blank"
+                            >Link</a
+                          ></small
+                        >
+                      </div>
+                      <p class="mb-1">
+                        Official documentation used for implementing X3DOM
+                        features.
+                      </p>
+                    </div>
+
+                    <div class="list-group-item border-0 shadow-sm mb-3">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Bootstrap Documentation</h5>
+                        <small
+                          ><a
+                            href="https://getbootstrap.com/docs/"
+                            target="_blank"
+                            >Link</a
+                          ></small
+                        >
+                      </div>
+                      <p class="mb-1">
+                        Official documentation used for implementing responsive
+                        design and components.
+                      </p>
+                    </div>
+
+                    <div class="list-group-item border-0 shadow-sm mb-3">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">MDN Web Docs</h5>
+                        <small
+                          ><a
+                            href="https://developer.mozilla.org/"
+                            target="_blank"
+                            >Link</a
+                          ></small
+                        >
+                      </div>
+                      <p class="mb-1">
+                        Reference for JavaScript, CSS, and HTML implementations.
+                      </p>
+                    </div>
+
+                    <div class="list-group-item border-0 shadow-sm">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">
+                          Web 3D Applications Course Materials
+                        </h5>
+                      </div>
+                      <p class="mb-1">
+                        Course materials, lectures, and tutorials provided by
+                        the university.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Image & Media Sources -->
+                <div class="mb-5" data-aos="fade-up" data-aos-delay="300">
+                  <h2 class="mb-4 border-bottom pb-3">
+                    <i class="fas fa-images me-2 text-primary"></i>Image & Media
+                    Sources
+                  </h2>
+
+                  <p>
+                    All product images and 3D models are created specifically
+                    for this project and are not derived from existing
+                    commercial assets.
+                  </p>
+
+                  <div class="alert alert-info mt-3">
+                    <h5>
+                      <i class="fas fa-info-circle me-2"></i>Copyright Notice
+                    </h5>
+                    <p class="mb-0">
+                      This project is created for educational purposes only. All
+                      trademarks and brand names are the property of their
+                      respective owners.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-5 text-center">
+                  <a href="index.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-home me-2"></i>Return to Homepage
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="footer-modern">
+      <div class="container">
+        <div class="footer-content-modern">
+          <div class="footer-copyright">
+            <p>
+              &copy; 2025 Web 3D Applications |
+              <a href="submission.html">Submission</a>
+            </p>
+          </div>
+          <div class="footer-social">
+            <a href="#" class="social-icon"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com" target="_blank" class="social-icon"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS animation library
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+      // Add animation to navbar on scroll
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          document.querySelector('.navbar-modern').style.padding =
+            '0.5rem 2rem';
+        } else {
+          document.querySelector('.navbar-modern').style.padding =
+            '0.8rem 2rem';
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!--START OF CSS REFERENCES-->
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <!-- X3DOM.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/x3dom.css" />
+    <!-- Fontawesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css" />
+
+    <!-- Modern Navigation CSS -->
+    <link rel="stylesheet" href="assets/css/modern-navigation.css" />
+    <!-- FancyBox3 CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"
+    />
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Custom Styles for updated UI -->
+    <style>
+      /* Updated navbar styles */
+      .navbar_coca_cola {
+        background: linear-gradient(135deg, #e7223a 0%, #b7142c 100%);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        padding: 0.8rem 2rem;
+      }
+
+      /* Enhanced Logo Styles */
+      .brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-3d {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        transform-style: preserve-3d;
+        transform: rotateX(-20deg) rotateY(30deg);
+        animation: logo-rotate 12s infinite ease-in-out;
+        transition: transform 0.3s ease;
+      }
+
+      .logo-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.15);
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+        backface-visibility: visible;
+      }
+
+      .logo-front {
+        transform: translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .logo-back {
+        transform: rotateY(180deg) translateZ(20px);
+      }
+
+      .logo-right {
+        transform: rotateY(90deg) translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .logo-left {
+        transform: rotateY(-90deg) translateZ(20px);
+      }
+
+      .logo-top {
+        transform: rotateX(90deg) translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+
+      .logo-bottom {
+        transform: rotateX(-90deg) translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-title {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        letter-spacing: 1px;
+      }
+
+      .brand-title .highlight {
+        color: #ffffff;
+        position: relative;
+        display: inline-block;
+      }
+
+      .brand-title .highlight::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .brand-tagline {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 2px 0 0 0;
+        letter-spacing: 1.5px;
+        font-weight: 400;
+      }
+
+      @keyframes logo-rotate {
+        0% {
+          transform: rotateX(-20deg) rotateY(0deg);
+        }
+        25% {
+          transform: rotateX(20deg) rotateY(90deg);
+        }
+        50% {
+          transform: rotateX(-10deg) rotateY(180deg);
+        }
+        75% {
+          transform: rotateX(30deg) rotateY(270deg);
+        }
+        100% {
+          transform: rotateX(-20deg) rotateY(360deg);
+        }
+      }
+
+      .navbar-brand:hover .logo-3d {
+        animation-play-state: paused;
+        transform: rotateX(0deg) rotateY(0deg) scale(1.1);
+      }
+
+      .navbar-brand:hover .brand-title .highlight::after {
+        transform: scaleX(1.2);
+      }
+
+      .navbar-brand-container {
+        position: relative;
+        padding: 0.5rem 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand-container:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
+
+      /* Logo Styles */
+      .logo-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .logo-cube {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        margin-right: 12px;
+        transform-style: preserve-3d;
+        transform: rotateX(-20deg) rotateY(30deg);
+        animation: cube-spin 20s infinite linear;
+      }
+
+      .logo-cube-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .logo-cube-front {
+        transform: translateZ(16px);
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .logo-cube-back {
+        transform: rotateY(180deg) translateZ(16px);
+      }
+
+      .logo-cube-right {
+        transform: rotateY(90deg) translateZ(16px);
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+
+      .logo-cube-left {
+        transform: rotateY(-90deg) translateZ(16px);
+      }
+
+      .logo-cube-top {
+        transform: rotateX(90deg) translateZ(16px);
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .logo-cube-bottom {
+        transform: rotateX(-90deg) translateZ(16px);
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo-main {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 1;
+        letter-spacing: 0.5px;
+        color: white;
+        margin: 0;
+      }
+
+      .logo-main .highlight {
+        color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        display: inline-block;
+      }
+
+      .logo-main .highlight::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .logo-slogan {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.8);
+        letter-spacing: 1px;
+        margin: 0;
+      }
+
+      @keyframes cube-spin {
+        0% {
+          transform: rotateX(-20deg) rotateY(0deg);
+        }
+        100% {
+          transform: rotateX(-20deg) rotateY(360deg);
+        }
+      }
+
+      .navbar-brand-container:hover .logo-cube {
+        animation-play-state: paused;
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-link {
+        position: relative;
+        margin: 0 0.5rem;
+        padding: 0.5rem 1rem;
+        color: white;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        border-radius: 50px;
+        z-index: 1;
+      }
+
+      .nav-linkk:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        width: 80%;
+        height: 3px;
+        background-color: white;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+        z-index: -1;
+      }
+
+      .nav-link:hover:before,
+      .nav-link.active:before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        height: 600px;
+        overflow: hidden;
+        margin-bottom: 3rem;
+      }
+
+      .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(assets/images/site_images/home_banner/main_3D_small.jpg);
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.8);
+        transform: scale(1.05);
+        animation: zoomIn 20s infinite alternate ease-in-out;
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.1);
+        }
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(231, 34, 58, 0.85) 0%,
+          rgba(0, 102, 179, 0.85) 100%
+        );
+        opacity: 0.7;
+      }
+
+      .hero-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100%;
+        padding: 3rem;
+        color: white;
+        z-index: 1;
+      }
+
+      .hero-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInDown 1s ease;
+      }
+
+      .hero-subtitle {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInDown 1s 0.2s ease both;
+      }
+
+      .hero-description {
+        max-width: 600px;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s 0.4s ease both;
+      }
+
+      .hero-button {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        background-color: #e7223a;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        animation: fadeInUp 1s 0.6s ease both;
+      }
+
+      .hero-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        background-color: #c41c31;
+        color: white;
+      }
+
+      /* Products Section */
+      .products-section {
+        padding: 2rem 0 4rem;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-family: 'Oswald', sans-serif;
+        color: #343a40;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-title p {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto;
+        color: #6c757d;
+      }
+
+      .product-card {
+        position: relative;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        height: 100%;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .product-image {
+        height: 300px;
+        overflow: hidden;
+        border-radius: 12px 12px 0 0;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+
+      .product-card:hover .product-image img {
+        transform: scale(1.1);
+      }
+
+      .product-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(0, 0, 0, 0) 50%
+        );
+        pointer-events: none;
+      }
+
+      .product-content {
+        position: relative;
+        padding: 2rem;
+        background-color: white;
+      }
+
+      .product-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        color: #e7223a;
+      }
+
+      .product-subtitle {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #343a40;
+      }
+
+      .product-description {
+        margin-bottom: 1.5rem;
+        color: #6c757d;
+        line-height: 1.6;
+      }
+
+      .product-button {
+        padding: 0.6rem 1.5rem;
+        font-weight: 500;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+      }
+
+      .product-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-section {
+          height: 500px;
+        }
+
+        .hero-title {
+          font-size: 3rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.5rem;
+        }
+
+        .hero-description {
+          font-size: 1rem;
+        }
+
+        .hero-content {
+          padding: 2rem;
+        }
+
+        .logo-cube {
+          width: 28px;
+          height: 28px;
+          margin-right: 8px;
+        }
+
+        .logo-main {
+          font-size: 1.5rem;
+        }
+
+        .logo-slogan {
+          font-size: 0.7rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .logo-cube {
+          width: 24px;
+          height: 24px;
+          margin-right: 6px;
+        }
+
+        .logo-main {
+          font-size: 1.3rem;
+        }
+
+        .logo-slogan {
+          font-size: 0.65rem;
+        }
+      }
+    </style>
+    <!--END OF CSS REFERENCES-->
+
+    <title>EsrCola - Immersive 3D Beverage Experience</title>
+  </head>
+
+  <body id="bodyColor">
+    <!-- Modern Navbar -->
+    <nav
+      id="headerColor"
+      class="navbar sticky-top navbar-expand-sm navbar-modern"
+    >
+      <!-- Brand Title-->
+      <div class="navbar-brand-wrapper">
+        <a class="navbar-brand" href="index.html">
+          <div class="brand-logo">
+            <div class="logo-3d">
+              <div class="logo-face logo-front">
+                <i class="fas fa-glass-cheers"></i>
+              </div>
+              <div class="logo-face logo-back">
+                <i class="fas fa-tint"></i>
+              </div>
+              <div class="logo-face logo-right">
+                <i class="fas fa-cube"></i>
+              </div>
+              <div class="logo-face logo-left">
+                <i class="fas fa-glass-whiskey"></i>
+              </div>
+              <div class="logo-face logo-top">
+                <i class="fas fa-cubes"></i>
+              </div>
+              <div class="logo-face logo-bottom">
+                <i class="fas fa-glass-martini-alt"></i>
+              </div>
+            </div>
+            <div class="brand-text">
+              <h1 class="brand-title">
+                Esr<span class="highlight">Cola</span>
+              </h1>
+              <p class="brand-tagline">EXPERIENCE BEVERAGES IN 3D</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navbar Menu Icon -->
+      <button
+        type="button"
+        class="navbar-toggler navbar-toggler-modern"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon-modern"></span>
+      </button>
+
+      <!-- Menu -->
+      <div class="collapse navbar-collapse">
+        <!-- Links -->
+        <ul class="navbar-nav ms-auto nav-menu-modern">
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern active" href="index.html">
+              <i class="fas fa-home nav-icon"></i>Home
+            </a>
+          </li>
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern" href="about.html">
+              <i class="fas fa-info-circle nav-icon"></i>About
+            </a>
+          </li>
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern" href="models.html">
+              <i class="fas fa-cube nav-icon"></i>Models
+            </a>
+          </li>
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern" href="submission.html">
+              <i class="fas fa-file-alt nav-icon"></i>Submission
+            </a>
+          </li>
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern" href="sitemap.html">
+              <i class="fas fa-sitemap nav-icon"></i>Site Map
+            </a>
+          </li>
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern" href="references.html">
+              <i class="fas fa-link nav-icon"></i>References
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container-fluid p-0">
+      <!-- This is the home page contents -->
+      <div id="home" class="main_contents">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="hero-background"></div>
+          <div class="hero-overlay"></div>
+          <div class="container">
+            <div class="hero-content">
+              <h1 class="hero-title" id="title_home">
+                Coca Cola Great Britain
+              </h1>
+              <h2 class="hero-subtitle" id="subTitle_home">
+                Refreshing the world, one story at a time
+              </h2>
+              <p class="hero-description" id="description_home">
+                Discover the iconic Coca-Cola products through immersive 3D
+                experiences. Explore the details of our classic designs and
+                learn about the world's most beloved beverage brands.
+              </p>
+              <a href="models.html" class="btn hero-button">
+                Explore 3D Models <i class="fas fa-cube ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section">
+          <div class="container">
+            <div class="section-title">
+              <h2>Discover Legendary Refreshments</h2>
+              <p>
+                Journey through our collection of iconic beverages, each with a
+                distinctive heritage and unparalleled taste profile that has
+                stood the test of time.
+              </p>
+            </div>
+
+            <!-- A row to hold three cards for the Coke, Sprite and Pepper contents -->
+            <div class="row">
+              <!--COKE-->
+              <div
+                class="col-md-4 mb-4"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                <div class="product-card">
+                  <div class="product-image">
+                    <a
+                      href="assets/images/render_images/CokeRender.jpg"
+                      data-fancybox
+                      data-caption="My 3D Coke Can Render"
+                    >
+                      <img
+                        src="assets/images/site_images/drink_banner/modern/coca_cola_modern.jpg"
+                        alt="Coca Cola"
+                      />
+                    </a>
+                    <div class="product-overlay"></div>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="product-title" id="title_left"></h3>
+                    <h4 class="product-subtitle" id="subTitle_left"></h4>
+                    <p class="product-description" id="description_left"></p>
+                    <a
+                      href="https://www.coca-cola.com/gb/en/brands/coca-cola-original-taste"
+                      class="btn btn-primary product-button"
+                      target="_blank"
+                    >
+                      Find out more
+                      <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!--SPRITE-->
+              <div
+                class="col-md-4 mb-4"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div class="product-card">
+                  <div class="product-image">
+                    <a
+                      href="assets/images/render_images/SpriteRender.jpg"
+                      data-fancybox
+                      data-caption="My 3D Sprite Bottle Render"
+                    >
+                      <img
+                        src="assets/images/site_images/drink_banner/modern/sprite_modern.jpg"
+                        alt="Sprite"
+                      />
+                    </a>
+                    <div class="product-overlay"></div>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="product-title" id="title_centre"></h3>
+                    <h4 class="product-subtitle" id="subTitle_centre"></h4>
+                    <p class="product-description" id="description_centre"></p>
+                    <a
+                      href="https://www.coca-cola.com/gb/en/brands/sprite"
+                      class="btn btn-primary product-button"
+                      target="_blank"
+                    >
+                      Find out more
+                      <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!--PEPPER-->
+              <div
+                class="col-md-4 mb-4"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <div class="product-card">
+                  <div class="product-image">
+                    <a
+                      href="assets/images/render_images/DrPepperRender.jpg"
+                      data-fancybox
+                      data-caption="My 3D Dr Pepper Bottle Render"
+                    >
+                      <img
+                        src="assets/images/site_images/drink_banner/modern/dr_pepper_modern.jpg"
+                        alt="Dr Pepper"
+                      />
+                    </a>
+                    <div class="product-overlay"></div>
+                  </div>
+                  <div class="product-content">
+                    <h3 class="product-title" id="title_right"></h3>
+                    <h4 class="product-subtitle" id="subTitle_right"></h4>
+                    <p class="product-description" id="description_right"></p>
+                    <a
+                      href="https://www.coca-cola.com/gb/en/brands/dr-pepper"
+                      class="btn btn-primary product-button"
+                      target="_blank"
+                    >
+                      Find out more
+                      <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End products row -->
+          </div>
+        </section>
+      </div>
+      <!-- End home page contents -->
+
+      <!-- Contact modal -->
+      <div
+        class="modal fade"
+        id="contactModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="contactModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="contactModalLabel">Get in Touch</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="How should we address you?"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Where can we reach you?"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="message">Your Message</label>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    rows="3"
+                    placeholder="What would you like to tell us?"
+                  ></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button type="button" class="btn btn-primary">
+                Submit Message
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End container-fluid -->
+
+    <!-- Modern Footer -->
+    <footer class="footer-modern">
+      <div class="container">
+        <div class="footer-content-modern">
+          <div class="footer-copyright">
+            <p>
+              &copy; 2025 EsrCola • Immersive 3D Experiences |
+              <a href="submission.html">Project Submission</a>
+            </p>
+          </div>
+          <div class="footer-social">
+            <a href="#" class="social-icon" title="Follow us on Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-icon" title="Follow us on Twitter/X"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-icon" title="Join us on Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://github.com" target="_blank" class="social-icon"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="assets/scripts/js/x3dom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/scripts/js/custom.js"></script>
+    <script src="assets/scripts/js/getJsonData.js"></script>
+    <script src="assets/scripts/js/animations.js"></script>
+    <script>
+      // Initialize AOS animation library
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // Update hero content dynamically
+      $(document).ready(function () {
+        // The content is set in custom.js, but we need to ensure it's displayed in the new structure
+        const homeTitle = $('#title_home').html();
+        const homeSubtitle = $('#subTitle_home').html();
+        const homeDescription = $('#description_home').html();
+
+        if (homeTitle) $('.hero-title').html(homeTitle);
+        if (homeSubtitle) $('.hero-subtitle').html(homeSubtitle);
+        if (homeDescription) $('.hero-description').html(homeDescription);
+
+        // Add animation to navbar on scroll
+        $(window).scroll(function () {
+          if ($(window).scrollTop() > 50) {
+            $('.navbar-modern').css('padding', '0.5rem 2rem');
+          } else {
+            $('.navbar-modern').css('padding', '0.8rem 2rem');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

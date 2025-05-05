@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!--START OF CSS REFERENCES-->
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <!-- X3DOM.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/x3dom.css" />
+    <!-- Fontawesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <!-- Modern Navigation CSS -->
+    <link rel="stylesheet" href="assets/css/modern-navigation.css" />
+    <!-- FancyBox3 CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"
+    />
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Custom Styles for updated UI -->
+    <style>
+      /* Updated navbar styles */
+      .navbar_coca_cola {
+        background: linear-gradient(135deg, #e7223a 0%, #b7142c 100%);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        padding: 0.8rem 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand-container {
+        position: relative;
+        padding: 0.5rem 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand-container:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .logo-cube {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        margin-right: 12px;
+        transform-style: preserve-3d;
+        transform: rotateX(-20deg) rotateY(30deg);
+        animation: cube-spin 20s infinite linear;
+      }
+
+      .logo-cube-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .logo-cube-front {
+        transform: translateZ(16px);
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .logo-cube-back {
+        transform: rotateY(180deg) translateZ(16px);
+      }
+
+      .logo-cube-right {
+        transform: rotateY(90deg) translateZ(16px);
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+
+      .logo-cube-left {
+        transform: rotateY(-90deg) translateZ(16px);
+      }
+
+      .logo-cube-top {
+        transform: rotateX(90deg) translateZ(16px);
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .logo-cube-bottom {
+        transform: rotateX(-90deg) translateZ(16px);
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo-main {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 1;
+        letter-spacing: 0.5px;
+        color: white;
+        margin: 0;
+      }
+
+      .logo-main .highlight {
+        color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        display: inline-block;
+      }
+
+      .logo-main .highlight::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .logo-slogan {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.8);
+        letter-spacing: 1px;
+        margin: 0;
+      }
+
+      @keyframes cube-spin {
+        0% {
+          transform: rotateX(-20deg) rotateY(0deg);
+        }
+        100% {
+          transform: rotateX(-20deg) rotateY(360deg);
+        }
+      }
+
+      .navbar-brand-container:hover .logo-cube {
+        animation-play-state: paused;
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-link {
+        position: relative;
+        margin: 0 0.5rem;
+        padding: 0.5rem 1rem;
+        color: white;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        border-radius: 50px;
+        z-index: 1;
+      }
+
+      .nav-linkk:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        width: 80%;
+        height: 3px;
+        background-color: white;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+        z-index: -1;
+      }
+
+      .nav-link:hover:before,
+      .nav-link.active:before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Hamburger menu enhancement */
+      .navbar-toggler {
+        border: none;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        position: relative;
+        transition: all 0.3s ease;
+        padding: 0;
+      }
+
+      .navbar-toggler:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+      }
+
+      .navbar-toggler-icon {
+        background-image: none !important;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        position: relative;
+      }
+
+      .navbar-toggler-icon::before,
+      .navbar-toggler-icon::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: white;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        left: 0;
+      }
+
+      .navbar-toggler-icon::before {
+        top: 8px;
+        transform: rotate(0deg);
+      }
+
+      .navbar-toggler-icon::after {
+        bottom: 8px;
+        transform: rotate(0deg);
+      }
+
+      .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon::before {
+        transform: rotate(45deg);
+        top: 11px;
+      }
+
+      .navbar-toggler[aria-expanded='true'] .navbar-toggler-icon::after {
+        transform: rotate(-45deg);
+        bottom: 11px;
+      }
+
+      /* Enhanced Footer */
+      .footer {
+        background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+        color: white;
+        padding: 1.5rem 0;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        margin-top: 4rem;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .copyright {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0.5rem 0;
+      }
+
+      .copyright a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .copyright a:hover {
+        color: white;
+      }
+
+      .copyright a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: white;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+      }
+
+      .copyright a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .social {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .social a:hover {
+        background-color: #e7223a;
+        transform: translateY(-3px);
+        color: white;
+      }
+
+      /* Models Hero Section */
+      .models-hero {
+        position: relative;
+        height: 250px;
+        background: linear-gradient(135deg, #e7223a 0%, #b7142c 100%);
+        overflow: hidden;
+        margin-bottom: 3rem;
+      }
+
+      .models-hero-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        opacity: 0.6;
+      }
+
+      .models-hero-content {
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        z-index: 1;
+        padding: 2rem;
+      }
+
+      .models-hero-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInDown 1s ease;
+      }
+
+      .models-hero-subtitle {
+        font-size: 1.2rem;
+        max-width: 600px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s 0.3s ease both;
+      }
+
+      /* 3D Model Viewer Section */
+      .model-hero-section {
+        position: relative;
+        margin-top: 1.5rem;
+        margin-bottom: 3rem;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      .model-container {
+        position: relative;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .model-header {
+        background: linear-gradient(90deg, #e7223a 0%, #b7142c 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 15px 15px 0 0;
+      }
+
+      .model-header h2 {
+        font-family: 'Oswald', sans-serif;
+        margin: 0;
+        font-size: 1.8rem;
+      }
+
+      .model-selection {
+        background-color: white;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .model-btn {
+        padding: 0.8rem 1.5rem;
+        margin: 0 0.5rem;
+        border-radius: 50px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .model-btn:hover,
+      .model-btn:focus {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .model-btn.active {
+        background-color: #e7223a !important;
+        color: white;
+      }
+
+      .model-viewer {
+        padding: 0;
+        border-radius: 0;
+        overflow: hidden;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        position: relative;
+      }
+
+      .model3D {
+        width: 100%;
+        height: 500px;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .model-overlay {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 50px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        color: #343a40;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        pointer-events: none;
+      }
+
+      .controls-container {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .control-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .control-group:last-child {
+        margin-bottom: 0;
+      }
+
+      .control-label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+        color: #343a40;
+      }
+
+      .control-label i {
+        margin-right: 0.8rem;
+        color: #e7223a;
+        font-size: 1.3rem;
+      }
+
+      .control-btn {
+        padding: 0.6rem 1.2rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .control-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .camera-btn {
+        background-color: #0066b3;
+        color: white;
+        border: none;
+      }
+
+      .camera-btn:hover,
+      .camera-btn:focus {
+        background-color: #0056a3;
+        color: white;
+      }
+
+      .action-btn {
+        background-color: #f8f9fa;
+        color: #343a40;
+        border: 1px solid #e9ecef;
+      }
+
+      .action-btn:hover,
+      .action-btn:focus {
+        background-color: #e9ecef;
+        color: #212529;
+      }
+
+      /* Gallery Section */
+      .gallery-container {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .gallery-header {
+        background: linear-gradient(90deg, #343a40 0%, #212529 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 15px 15px 0 0;
+      }
+
+      .gallery-header h2 {
+        font-family: 'Oswald', sans-serif;
+        margin: 0;
+        font-size: 1.8rem;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+        padding: 1.5rem;
+      }
+
+      .gallery a {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        display: block;
+      }
+
+      .gallery img {
+        width: 100%;
+        border-radius: 8px;
+        transition: all 0.5s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery a:hover img {
+        transform: scale(1.08);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .gallery a::after {
+        content: '+';
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: #e7223a;
+        color: white;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .gallery a:hover::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      /* Add gallery caption and view model button styles */
+      .gallery .model-link {
+        position: relative;
+      }
+
+      .gallery .model-link::after {
+        display: none;
+      }
+
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(231, 34, 58, 0.8);
+        color: white;
+        padding: 8px;
+        text-align: center;
+        transform: translateY(100%);
+        transition: all 0.3s ease;
+      }
+
+      .view-model-btn {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        font-size: 0.9rem;
+      }
+
+      .gallery .model-link:hover .gallery-caption {
+        transform: translateY(0);
+      }
+
+      .title_gallery {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.5rem;
+        color: #343a40;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .description_gallery {
+        color: #6c757d;
+        font-size: 0.9rem;
+        text-align: center;
+        padding: 0 1rem;
+      }
+
+      .model-info {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-top: 1.5rem;
+      }
+
+      .model-info-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.5rem;
+        color: #343a40;
+      }
+
+      .model-info-header i {
+        margin-right: 1rem;
+        color: #e7223a;
+        font-size: 1.6rem;
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(231, 34, 58, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(231, 34, 58, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(231, 34, 58, 0);
+        }
+      }
+
+      .model-btn.active {
+        animation: pulse 2s infinite;
+      }
+
+      @media (max-width: 768px) {
+        .navbar_coca_cola {
+          padding: 0.8rem 1rem;
+        }
+
+        .navbar-brand-container {
+          padding: 0.4rem 1rem;
+        }
+
+        .logo-cube {
+          width: 28px;
+          height: 28px;
+          margin-right: 8px;
+        }
+
+        .logo-main {
+          font-size: 1.5rem;
+        }
+
+        .logo-slogan {
+          font-size: 0.7rem;
+        }
+
+        .navbar-brand h3 {
+          font-size: 1rem;
+        }
+
+        .nav-menu {
+          background-color: rgba(231, 34, 58, 0.95);
+          border-radius: 0 0 15px 15px;
+          padding: 1rem;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item {
+          width: 100%;
+          margin: 0.25rem 0;
+        }
+
+        .nav-link {
+          width: 100%;
+          text-align: center;
+          margin: 0.25rem 0;
+          padding: 0.75rem 1rem;
+        }
+
+        .footer {
+          padding: 1.2rem 0;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 1rem;
+        }
+
+        .social {
+          justify-content: center;
+        }
+
+        .models-hero {
+          height: 200px;
+        }
+
+        .models-hero-title {
+          font-size: 2.5rem;
+        }
+
+        .model3D {
+          height: 350px;
+        }
+
+        .model-selection {
+          flex-wrap: wrap;
+        }
+
+        .model-btn {
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .navbar_coca_cola {
+          padding: 0.6rem 0.8rem;
+        }
+
+        .navbar-brand-container {
+          padding: 0.3rem 0.8rem;
+        }
+
+        .logo-cube {
+          width: 24px;
+          height: 24px;
+          margin-right: 6px;
+        }
+
+        .logo-main {
+          font-size: 1.3rem;
+        }
+
+        .logo-slogan {
+          font-size: 0.65rem;
+        }
+
+        .models-hero-title {
+          font-size: 2rem;
+        }
+
+        .social a {
+          width: 36px;
+          height: 36px;
+        }
+
+        .social i {
+          font-size: 1.2rem;
+        }
+      }
+
+      /* Enhanced Logo Styles */
+      .brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-3d {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        transform-style: preserve-3d;
+        transform: rotateX(-20deg) rotateY(30deg);
+        animation: logo-rotate 12s infinite ease-in-out;
+        transition: transform 0.3s ease;
+      }
+
+      .logo-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.15);
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+        backface-visibility: visible;
+      }
+
+      .logo-front {
+        transform: translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .logo-back {
+        transform: rotateY(180deg) translateZ(20px);
+      }
+
+      .logo-right {
+        transform: rotateY(90deg) translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .logo-left {
+        transform: rotateY(-90deg) translateZ(20px);
+      }
+
+      .logo-top {
+        transform: rotateX(90deg) translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+
+      .logo-bottom {
+        transform: rotateX(-90deg) translateZ(20px);
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-title {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        letter-spacing: 1px;
+      }
+
+      .brand-title .highlight {
+        color: #ffffff;
+        position: relative;
+        display: inline-block;
+      }
+
+      .brand-title .highlight::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .brand-tagline {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 2px 0 0 0;
+        letter-spacing: 1.5px;
+        font-weight: 400;
+      }
+
+      @keyframes logo-rotate {
+        0% {
+          transform: rotateX(-20deg) rotateY(0deg);
+        }
+        25% {
+          transform: rotateX(20deg) rotateY(90deg);
+        }
+        50% {
+          transform: rotateX(-10deg) rotateY(180deg);
+        }
+        75% {
+          transform: rotateX(30deg) rotateY(270deg);
+        }
+        100% {
+          transform: rotateX(-20deg) rotateY(360deg);
+        }
+      }
+
+      .navbar-brand:hover .logo-3d {
+        animation-play-state: paused;
+        transform: rotateX(0deg) rotateY(0deg) scale(1.1);
+      }
+
+      .navbar-brand:hover .brand-title .highlight::after {
+        transform: scaleX(1.2);
+      }
+    </style>
+    <!--END OF CSS REFERENCES-->
+
+    <title>3D Models - Coca Cola 3D Website</title>
+  </head>
+
+  <body id="bodyColor">
+    <!-- Modern Navbar -->
+    <nav
+      id="headerColor"
+      class="navbar sticky-top navbar-expand-sm navbar-modern"
+    >
+      <!-- Brand Title-->
+      <div class="navbar-brand-wrapper">
+        <a class="navbar-brand" href="index.html">
+          <div class="brand-logo">
+            <div class="logo-3d">
+              <div class="logo-face logo-front">
+                <i class="fas fa-glass-cheers"></i>
+              </div>
+              <div class="logo-face logo-back">
+                <i class="fas fa-tint"></i>
+              </div>
+              <div class="logo-face logo-right">
+                <i class="fas fa-cube"></i>
+              </div>
+              <div class="logo-face logo-left">
+                <i class="fas fa-glass-whiskey"></i>
+              </div>
+              <div class="logo-face logo-top">
+                <i class="fas fa-cubes"></i>
+              </div>
+              <div class="logo-face logo-bottom">
+                <i class="fas fa-glass-martini-alt"></i>
+              </div>
+            </div>
+            <div class="brand-text">
+              <h1 class="brand-title">
+                Esr<span class="highlight">Cola</span>
+              </h1>
+              <p class="brand-tagline">EXPERIENCE BEVERAGES IN 3D</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navbar Menu Icon -->
+      <button
+        type="button"
+        class="navbar-toggler navbar-toggler-modern"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon-modern"></span>
+      </button>
+
+      <!-- Menu -->
+      <div class="collapse navbar-collapse">
+        <!-- Links -->
+        <ul class="navbar-nav ms-auto nav-menu-modern">
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern" href="index.html">
+              <i class="fas fa-home nav-icon"></i>Home
+            </a>
+          </li>
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern" href="about.html">
+              <i class="fas fa-info-circle nav-icon"></i>About
+            </a>
+          </li>
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern active" href="models.html">
+              <i class="fas fa-cube nav-icon"></i>Models
+            </a>
+          </li>
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern" href="submission.html">
+              <i class="fas fa-file-alt nav-icon"></i>Submission
+            </a>
+          </li>
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern" href="sitemap.html">
+              <i class="fas fa-sitemap nav-icon"></i>Site Map
+            </a>
+          </li>
+          <li class="nav-item nav-item-modern">
+            <a class="nav-link nav-link-modern" href="references.html">
+              <i class="fas fa-link nav-icon"></i>References
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container-fluid p-0">
+      <!-- This is the content for X3D models and 3D Image Gallery -->
+      <div id="models" class="main_contents">
+        <!-- Models Hero Section -->
+        <section class="models-hero">
+          <div class="models-hero-pattern"></div>
+          <div class="container">
+            <div class="models-hero-content">
+              <h1 class="models-hero-title">Interactive 3D Models</h1>
+              <p class="models-hero-subtitle">
+                Explore our Coca-Cola products in immersive 3D. Rotate, zoom,
+                and interact with our detailed models.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="container">
+          <div class="row model-hero-section">
+            <!-- X3D Model -->
+            <div class="col-lg-8">
+              <div class="model-container" data-aos="fade-up">
+                <div class="model-header">
+                  <h2><i class="fas fa-cube mr-2"></i>3D Model Viewer</h2>
+                </div>
+
+                <div class="model-selection">
+                  <button
+                    type="button"
+                    class="btn model-btn active"
+                    id="cokeBtn"
+                  >
+                    <i class="fas fa-glass-whiskey mr-2"></i>Coca Cola
+                  </button>
+                  <button type="button" class="btn model-btn" id="spriteBtn">
+                    <i class="fas fa-wine-bottle mr-2"></i>Sprite
+                  </button>
+                  <button type="button" class="btn model-btn" id="pepperBtn">
+                    <i class="fas fa-wine-bottle mr-2"></i>Dr Pepper
+                  </button>
+                </div>
+
+                <div class="model-viewer">
+                  <!-- Hidden model titles -->
+                  <div id="x3dModelTitle_coke" class="d-none"></div>
+                  <div id="x3dModelTitle_sprite" class="d-none"></div>
+                  <div id="x3dModelTitle_pepper" class="d-none"></div>
+
+                  <!-- Model interaction overlay hint -->
+                  <div class="model-overlay">
+                    <i class="fas fa-hand-pointer mr-1"></i> Click & drag to
+                    rotate
+                  </div>
+
+                  <!-- X3D Code-->
+                  <div class="model3D">
+                    <x3d id="wire">
+                      <scene>
+                        <Switch whichChoice="0" id="SceneSwitch">
+                          <transform>
+                            <inline
+                              nameSpaceName="Cokemodel"
+                              mapDEFToID="true"
+                              onclick="animateModel();"
+                              url="assets/x3d_models/CokeCan/CokeCan.x3d"
+                            ></inline>
+                          </transform>
+                          <transform>
+                            <inline
+                              nameSpaceName="Peppermodel"
+                              mapDEFToID="true"
+                              onclick="animateModel();"
+                              url="assets/x3d_models/SpriteBottle/SpriteBottle.x3d"
+                            ></inline>
+                          </transform>
+                          <transform>
+                            <inline
+                              nameSpaceName="Spritemodel"
+                              mapDEFToID="true"
+                              onclick="animateModel();"
+                              url="assets/x3d_models/DrPepperBottle/DrPepperBottle.x3d"
+                            ></inline>
+                          </transform>
+                        </Switch>
+                      </scene>
+                    </x3d>
+                  </div>
+                  <!-- End X3D Code -->
+                </div>
+
+                <div class="controls-container" id="interaction">
+                  <div class="control-group">
+                    <div class="control-label">
+                      <i class="fas fa-camera"></i> Camera Views
+                    </div>
+                    <div>
+                      <button
+                        class="btn camera-btn control-btn"
+                        onclick="cameraFront();"
+                      >
+                        <i class="fas fa-arrow-up mr-1"></i>Front
+                      </button>
+                      <button
+                        class="btn camera-btn control-btn"
+                        onclick="cameraBack();"
+                      >
+                        <i class="fas fa-arrow-down mr-1"></i>Back
+                      </button>
+                      <button
+                        class="btn camera-btn control-btn"
+                        onclick="cameraLeft();"
+                      >
+                        <i class="fas fa-arrow-left mr-1"></i>Left
+                      </button>
+                      <button
+                        class="btn camera-btn control-btn"
+                        onclick="cameraRight();"
+                      >
+                        <i class="fas fa-arrow-right mr-1"></i>Right
+                      </button>
+                      <button
+                        class="btn camera-btn control-btn"
+                        onclick="cameraTop();"
+                      >
+                        <i class="fas fa-chevron-up mr-1"></i>Top
+                      </button>
+                      <button
+                        class="btn camera-btn control-btn"
+                        onclick="cameraBottom();"
+                      >
+                        <i class="fas fa-chevron-down mr-1"></i>Bottom
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <div class="control-label">
+                      <i class="fas fa-sliders-h"></i> Model Options
+                    </div>
+                    <div>
+                      <button
+                        class="btn action-btn control-btn"
+                        onclick="wireFrame();"
+                      >
+                        <i class="fas fa-cubes mr-1"></i>WireFrame
+                      </button>
+                      <button
+                        class="btn action-btn control-btn"
+                        onclick="toggleLight();"
+                      >
+                        <i class="fas fa-lightbulb mr-1"></i>Lights
+                      </button>
+                      <button
+                        class="btn action-btn control-btn"
+                        onclick="toggleSpin();"
+                      >
+                        <i class="fas fa-sync-alt mr-1"></i>Spin Model
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Model Description -->
+              <div class="model-info" data-aos="fade-up" data-aos-delay="200">
+                <div class="model-info-header">
+                  <i class="fas fa-info-circle"></i> Model Details
+                </div>
+                <p id="coke">
+                  A Coke can model created in Blender 2.80 and exported to X3D
+                  format. This classic Coca-Cola can features the iconic red
+                  design and branding. The file name is: "CokeCan.x3d".
+                </p>
+                <p id="sprite" style="display: none">
+                  A glass Sprite bottle model created in Blender 2.80 and
+                  exported to X3D format. This transparent Sprite bottle
+                  showcases the distinctive green design. The file name is:
+                  "SpriteBottle.x3d".
+                </p>
+                <p id="pepper" style="display: none">
+                  A plastic Dr Pepper bottle model created in Blender 2.80 and
+                  exported to X3D format. This Dr Pepper bottle features the
+                  traditional maroon color scheme. The file name is:
+                  "DrPepperBottle.x3d".
+                </p>
+              </div>
+            </div>
+            <!-- End X3D Column -->
+
+            <!-- 3D image gallery -->
+            <div class="col-lg-4">
+              <div
+                class="gallery-container"
+                data-aos="fade-up"
+                data-aos-delay="150"
+              >
+                <div class="gallery-header">
+                  <h2><i class="fas fa-images mr-2"></i>Gallery</h2>
+                </div>
+                <div class="card-body">
+                  <div class="card-title title_gallery drinksText"></div>
+                  <div class="gallery" id="galleryCoke"></div>
+                  <div
+                    class="gallery"
+                    id="gallerySprite"
+                    style="display: none"
+                  ></div>
+                  <div
+                    class="gallery"
+                    id="galleryPepper"
+                    style="display: none"
+                  ></div>
+                  <div
+                    class="card-text description_gallery drinksText mt-3"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <!-- End gallery column -->
+          </div>
+          <!-- End row -->
+        </div>
+      </div>
+      <!-- End models contents -->
+
+      <!-- Contact modal -->
+      <div
+        class="modal fade"
+        id="contactModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="contactModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    rows="3"
+                  ></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Send Message
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End container-fluid -->
+
+    <!-- Modern Footer -->
+    <footer class="footer-modern">
+      <div class="container">
+        <div class="footer-content-modern">
+          <div class="footer-copyright">
+            <p>
+              &copy; 2025 Web 3D Applications |
+              <a href="submission.html">Submission</a>
+            </p>
+          </div>
+          <div class="footer-social">
+            <a href="#" class="social-icon"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com" target="_blank" class="social-icon"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="assets/scripts/js/x3dom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/scripts/js/custom.js"></script>
+    <script src="assets/scripts/js/swap.js"></script>
+    <script src="assets/scripts/js/modelInteractions.js"></script>
+    <script src="assets/scripts/js/gallery_generator.js"></script>
+    <script src="assets/scripts/js/getJsonData.js"></script>
+    <script src="assets/scripts/js/animations.js"></script>
+    <script>
+      // Initialize AOS animation library
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // Show the models content by default on this page
+      $(document).ready(function () {
+        $('#models').show();
+        $('#interaction').show();
+
+        // Initialize with Coca Cola model by default
+        cokeScene();
+        cokeDescription();
+
+        // Initialize model buttons with active state
+        $('#cokeBtn').on('click', function () {
+          cokeScene();
+          cokeDescription();
+          // Update model overlay text based on selection
+          $('.model-overlay').html(
+            '<i class="fas fa-hand-pointer mr-1"></i> Coca Cola - Click & drag to rotate'
+          );
+        });
+
+        $('#spriteBtn').on('click', function () {
+          spriteScene();
+          spriteDescription();
+          // Update model overlay text based on selection
+          $('.model-overlay').html(
+            '<i class="fas fa-hand-pointer mr-1"></i> Sprite - Click & drag to rotate'
+          );
+        });
+
+        $('#pepperBtn').on('click', function () {
+          pepperScene();
+          pepperDescription();
+          // Update model overlay text based on selection
+          $('.model-overlay').html(
+            '<i class="fas fa-hand-pointer mr-1"></i> Dr Pepper - Click & drag to rotate'
+          );
+        });
+
+        // Auto-hide the model overlay after 5 seconds
+        setTimeout(function () {
+          $('.model-overlay').fadeOut();
+        }, 5000);
+
+        // Add animation to navbar on scroll
+        $(window).scroll(function () {
+          if ($(window).scrollTop() > 50) {
+            $('.navbar-modern').css('padding', '0.5rem 2rem');
+          } else {
+            $('.navbar-modern').css('padding', '0.8rem 2rem');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
